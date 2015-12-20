@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sballest <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/10/27 21:53:44 by sballest          #+#    #+#             */
+/*   Updated: 2015/10/29 12:23:56 by sballest         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+
+int		ft_strlen(char *str)
+{
+	int	x;
+
+	x = 0;
+	while (str[x])
+	{
+		x++;
+	}
+	return (x);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	x;
+
+	x = 0;
+	if (src == 0 || dest == 0)
+		return (0);
+	while (src[x])
+	{
+		dest[x] = src[x];
+		x++;
+	}
+	dest[x] = '\0';
+	return (dest);
+}
+
+char	*ft_strdup(char *src)
+{
+	char *src2;
+
+	src2 = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (src2 == 0)
+		return (0);
+	else
+	{	
+		ft_strcpy(src2, src);
+	}
+	return (src2);
+}
